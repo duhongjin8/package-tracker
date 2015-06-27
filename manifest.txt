@@ -1,0 +1,25 @@
+{
+	"name": "highlight demo",
+	"version": "1.0",
+	"permissions": [
+		"tabs", "http://*/*", "https://*/*", "http://wwwapps.ups.com/*"
+	],
+	"content_scripts": [
+    {
+		"js":["jquery-1.11.3.min.js" ,"highlight.js"],
+		"matches": [ "http://*/*", "https://*/*"]
+    }
+  ],
+   "background": { 
+		"scripts": ["jquery-1.11.3.min.js","status.js","background.js"] 
+   },
+	"browser_action": {
+		"default_title": "高亮",
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"background": {
+    	"page": "background.html"
+  	},
+	"manifest_version": 2
+}
