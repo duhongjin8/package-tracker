@@ -8,7 +8,7 @@
 	Second, change keyword to RegExp of Tracking Number in the range of it's parent node's subtree.
 	
 */
-
+ 
 
 jQuery.extend({
     highlight: function (node, re, array) {
@@ -81,7 +81,6 @@ jQuery.fn.highlight = function (array) {
 	var domain = document.domain.split(".")[1];
 	
 	if (domain.toString() == "ups" || domain.toString() =="fedex" || domain.toString() == "usps"){
-		alert("at carrier");
 		atCarrierWebsite(domain.toString(),array);
 	}else{
 		this.each(function () {
@@ -112,7 +111,13 @@ function findTrackingNumber(){
 	var array = [];
 	$('body').highlight(array);
 	alert("finish \n" + array.length);
-	chrome.runtime.sendMessage({trackingNumbers: array}, function(response) {console.log(response.farewell);}); 
+	// chrome.runtime.sendMessage({trackingNumbers: array}, 
+								// function(response) {console.log(response.farewell);
+													// console.log(response.result);
+													// trackingNumberResult = response.result}); 
+	chrome.runtime.sendMessage({trackingNumbers: array}, function(response) {console.log(response.farewell);});
+	
+	return array.length;
 	
 }
 
@@ -133,3 +138,6 @@ function trackingnumberList(array){
 	array.splice(index+1,array.length -index-1);
 	return array;
 }
+
+
+

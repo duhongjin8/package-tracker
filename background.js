@@ -33,10 +33,10 @@ chrome.runtime.onMessage.addListener(
 			"from a content script:" + sender.tab.url :
             "from the extension");
 		if (request.trackingNumbers.length != 0){
-			
-			sendResponse({farewell: request.trackingNumbers.length.toString() +" Received Tracking Number: "+request.trackingNumbers[0].toString() });
-			addTrackingNumber(request.trackingNumbers);
+			addTrackingNumber(request.trackingNumbers);	
 		} 
+
+		sendResponse({farewell: request.trackingNumbers.length.toString() +" Received Tracking Number: "+request.trackingNumbers[0].toString()});
   });
   
 
@@ -50,7 +50,7 @@ function addTrackingNumber(array){
 		trackingNumberList.push( trackingNumberWithCarrier);	
 	}
 	
-	trackingNumberList = trackingNumberList.concat(array);
+	//trackingNumberList = trackingNumberList.concat(array);
 }
 
 
@@ -67,9 +67,21 @@ function identifyCarrier(trackingNumber){
 
 
 
-function save(trackingNumberList){
-	
-	
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
  
